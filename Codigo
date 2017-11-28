@@ -1,0 +1,72 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include <time.h>
+//Tempo de jogo #include <time.h>
+//clock_t tInicio, tFim, tDecorrido;
+//tInicio = clock();
+/*seu codigo vem aqui*/
+//tFim = clock();
+void limpaTela () {
+    system("cls");
+}
+void limpaBuffer () {
+    setbuf(stdin,NULL);
+}
+void sudokucpu(){
+}
+void sudokujogador(){
+}
+int main(){
+	char nome_jogador1[15] = "JOGADOR 1";
+	char opcao;
+    char tem_certeza;
+	do{
+	printf("\t\t	__ __                ____        __ __             					\n");
+	printf("\t\t   /		|	   |	|	 \      |     |		| /		|	   |	  	\n");
+	printf("\t\t  /__ __	|      |    |     |     |     |     |/		|	   |		\n");
+	printf("\t\t	   /	|	   | 	|  	  |     |     |  	|\ 		|	   |		\n");
+	printf("\t\t _ __ /		|______|    |___ /      |__	__|	    | \     |______| 		n");
+	
+ printf("\n\n");
+        printf("\t\t     <------------------------------>\n");
+        printf("\t\t     |        MENU PRINCIPAL        |\n");
+        printf("\t\t     +------------------------------+\n");
+        printf("\t\t     |  1. JOGAR SUDOKU             |\n");
+        printf("\t\t     |  2. Carregar Sudoku          |\n");
+        printf("\t\t     |                              |\n");
+        printf("\t\t     |  0. SAIR                     |\n");
+        printf("\t\t     <------------------------------>\n\n\n");
+		printf("\t\t     > Digite uma opcao: ");
+        scanf("%c", &opcao);
+        while (opcao != '0' &&  opcao != '1' &&  opcao != '2') {
+            printf("\t\t > Digite uma opcao valida! ");
+            scanf("%c", &opcao);
+            limpaBuffer();
+        }
+        if (opcao == '0') {
+            printf("\t\t > Tem certeza que deseja sair [s/n]? ");
+            scanf("%c", &tem_certeza);
+            limpaBuffer();
+            while (tolower(tem_certeza) != 's' && tem_certeza != 'n') {
+                printf("\t\t\ > Digite uma opcao valida! [s/n]: ");
+                scanf("%c", &tem_certeza);
+                limpaBuffer();
+            }
+
+            if (tem_certeza == 's') {
+                exit(0);
+            }
+        }
+    }while(opcao == '0');
+	if(opcao=='1'){
+    limpaTela();
+    printf("DIGITE O SEU NOME: ");
+    scanf("%[^\n]s \n", nome_jogador1);
+	sudokucpu();
+}
+	if(opcao=='2'){
+		printf("Carregue o arquivo com o seu sudoku \n");
+	sudokujogador();
+	}
+return 0;
+}
