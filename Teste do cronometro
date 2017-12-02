@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+int main(void) {
+
+	double diff = 0.0;
+    time_t start;
+    time_t stop;
+
+	int *p;
+	int n;
+	register int j;
+
+	time(&start);
+
+	printf("Digite o tamanho do vetor desejado: ");
+	scanf("%i", &n);
+	if(n>0){
+
+	p = (int *) malloc ( n * sizeof(int));
+	if(p==NULL){
+		printf("\nErro! Memoria insuficiente.\n");
+		return -1;
+	}
+
+}
+else { printf("\nO valor digitado nao pode ser menor que 0. Digite um valor maior que 0: ");
+	   scanf("%i", &n);}
+
+	printf("\nDigite os elementos do vetor:\n");
+	for (j=0;j<n;j++)
+		scanf("%i", (p+j));
+
+	printf("\n");
+
+	for (j=0;j<n;j++)
+		printf("%i ", *(p+j));
+
+
+	time(&stop);
+        diff = difftime(stop, start);
+        printf("\n\nVoce levou %g segundos para acabar o programa\n", diff);
+
+	return 0;
+}
