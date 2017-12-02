@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <windows.h>
+
+int main()
+{
+  HANDLE  hConsole;
+    int k;
+
+  hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+  for(k = 1; k < 255; k++)
+  {
+    SetConsoleTextAttribute(hConsole, k);
+    printf("%3d  %s\n", k, "CORES DIFERENTES");
+  }
+
+  getchar();
+  return 0;
+}
