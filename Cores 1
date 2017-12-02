@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <windows.h>
+
+int main() {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    CONSOLE_SCREEN_BUFFER_INFO consoleInfo;
+    WORD saved_attributes;
+
+    /* Muda a cor atual */
+    GetConsoleScreenBufferInfo(hConsole, &consoleInfo);
+    saved_attributes = consoleInfo.wAttributes;
+
+    SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN);
+    printf("Cor modificada!");
+
+    /* Volta a cor ao normal */
+    SetConsoleTextAttribute(hConsole, saved_attributes);
+    printf("De volta ao normal.");
+
+    return 0;
+}
